@@ -1,0 +1,11 @@
+.nav {
+	height: 10vh;
+	background: $color_3;
+	justify-content: flex-start;
+	padding-left: 50px;
+	a {
+		font-size: 2em;
+		text-transform: uppercase;
+		color: $color_1;
+	}
+}
