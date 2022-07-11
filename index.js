@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const albumRoutes = require('./routes/albumRoutes');
 
 const app = express();
 const port = 3000;
@@ -11,9 +12,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-	res.render('album', { title: 'Album' });
-});
+app.use('/', albumRoutes);
 
 app.use((req, res, next) => {
 	res.status(404).send('Sorry cant find that!');

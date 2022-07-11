@@ -4,6 +4,18 @@
 		<%- include('partials/head') %>
 	</head>
 	<body>
-		<%- include('partials/nav') %> <%- include('partials/script') %>
+		<%- include('partials/nav') %>
+		<section class="container form">
+			<h2>New album</h2>
+			<form action="/albums/create" method="post">
+				<div>
+					<input type="text" name="album_title" placeholder="Album title" />
+				</div>
+				<div>
+					<input type="submit" value="Create" />
+				</div>
+			</form>
+		</section>
+		<%- include('partials/script') %>
 	</body>
 </html>

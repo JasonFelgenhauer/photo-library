@@ -19,4 +19,5 @@ or download zip
 ## Push history
 
 1. Add structure of the project.
-2. Adding the different views and the style
+2. Adding the different views and the style.
+3. Adding a form and a router.

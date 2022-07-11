@@ -1,0 +1,39 @@
+.form {
+	min-height: 90vh;
+	flex-direction: column;
+	justify-content: flex-start;
+	h2 {
+		margin: 100px 0;
+		font-size: 3em;
+	}
+	form {
+		width: 50%;
+		div {
+			input {
+				width: 100%;
+				padding: 10px;
+				border: 3px solid $color_3;
+				border-radius: 5px;
+				margin-bottom: 10px;
+				font-size: 1.2em;
+				transition: all 0.3s ease-in-out;
+				&::placeholder {
+					color: $color_3;
+				}
+				&[type='submit'] {
+					cursor: pointer;
+					font-weight: 600;
+					letter-spacing: 0.1em;
+					width: 25%;
+				}
+				&:hover {
+					background: $color_3;
+					color: $color_1;
+					&::placeholder {
+						color: $color_1;
+					}
+				}
+			}
+		}
+	}
+}

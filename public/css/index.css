@@ -42,4 +42,54 @@ a {
   font-size: 2em;
   text-transform: uppercase;
   color: #ffffff;
+}
+
+.form {
+  min-height: 90vh;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.form h2 {
+  margin: 100px 0;
+  font-size: 3em;
+}
+.form form {
+  width: 50%;
+}
+.form form div input {
+  width: 100%;
+  padding: 10px;
+  border: 3px solid #02020a;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  transition: all 0.3s ease-in-out;
+}
+.form form div input::-moz-placeholder {
+  color: #02020a;
+}
+.form form div input:-ms-input-placeholder {
+  color: #02020a;
+}
+.form form div input::placeholder {
+  color: #02020a;
+}
+.form form div input[type=submit] {
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  width: 25%;
+}
+.form form div input:hover {
+  background: #02020a;
+  color: #ffffff;
+}
+.form form div input:hover::-moz-placeholder {
+  color: #ffffff;
+}
+.form form div input:hover:-ms-input-placeholder {
+  color: #ffffff;
+}
+.form form div input:hover::placeholder {
+  color: #ffffff;
 }/*# sourceMappingURL=index.css.map */
