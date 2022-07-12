@@ -36,4 +36,15 @@
 			}
 		}
 	}
+	&_error {
+		background: $color_2;
+		padding: 10px;
+		color: $color_1;
+		font-size: 1.2em;
+		margin-top: 10px;
+		border-radius: 5px;
+
+		p {
+		}
+	}
 }

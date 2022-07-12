@@ -14,6 +14,11 @@
 				<div>
 					<input type="submit" value="Create" />
 				</div>
+				<% if(errors.length){ %>
+				<div class="form_error">
+					<p><%= errors %></p>
+				</div>
+				<% } %>
 			</form>
 		</section>
 		<%- include('partials/script') %>

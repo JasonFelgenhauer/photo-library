@@ -22,3 +22,4 @@ or download zip
 2. Adding the different views and the style.
 3. Adding a form and a router.
 4. Creation of models for albums.
+5. Error handling when creating an album

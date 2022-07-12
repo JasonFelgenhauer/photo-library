@@ -92,4 +92,12 @@ a {
 }
 .form form div input:hover::placeholder {
   color: #ffffff;
+}
+.form_error {
+  background: #880d1e;
+  padding: 10px;
+  color: #ffffff;
+  font-size: 1.2em;
+  margin-top: 10px;
+  border-radius: 5px;
 }/*# sourceMappingURL=index.css.map */

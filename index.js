@@ -1,4 +1,6 @@
 const express = require('express');
+const session = require('express-session');
+const flash = require('connect-flash');
 const path = require('path');
 const mongoose = require('mongoose');
 const albumRoutes = require('./routes/albumRoutes');
@@ -13,6 +15,16 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.set('trust proxy', 1);
+app.use(
+	session({
+		secret: 'pS"ZfFkYj/*ZI9z/slS.7A25<-!gd;',
+		resave: false,
+		saveUninitialized: true,
+	})
+);
+app.use(flash());
 
 app.use('/', albumRoutes);
 app.use((req, res, next) => res.status(404).send('Sorry cant find that!'));
