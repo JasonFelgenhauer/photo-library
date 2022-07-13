@@ -1,35 +1,34 @@
 const Album = require('../models/Album');
+const catchAsync = require('../helpers/catchAsync');
 const path = require('path');
-const fs = require('fs');
+const { mkdirSync, unlinkSync } = require('fs');
 const rimraf = require('rimraf');
 
-const album = async (req, res) => {
-	try {
-		const album = await Album.findById(req.params.id);
-		res.render('album', { title: 'Album', album, errors: req.flash('error') });
-	} catch (error) {
-		res.redirect('/404');
-	}
-};
+const album = catchAsync(async (req, res) => {
+	const id = req.params.id;
+	const album = await Album.findById(id);
+	if (!album) return res.redirect('/albums');
 
-const addImage = async (req, res) => {
-	const album = await Album.findById(req.params.id);
+	res.render('album', { title: 'Album', album, errors: req.flash('error') });
+});
+
+const addImage = catchAsync(async (req, res) => {
+	const id = req.params.id;
+	const album = await Album.findById(id);
+	if (!album) return res.redirect('/albums');
 
 	if (!req?.files?.add_image) {
 		req.flash('error', 'No image selected');
-		res.redirect(`/albums/id/${album._id}`);
-		return;
+		return res.redirect(`/albums/id/${album._id}`);
 	}
 
 	if (req.files.add_image.mimetype != 'image/jpeg' && req.files.add_image.mimetype != 'image/png') {
-		req.flash('error', 'Image must be jpeg or png');
-		res.redirect(`/albums/id/${album._id}`);
-		return;
+		req.flash('error', 'Wrong image format');
+		return res.redirect(`/albums/id/${id}`);
 	}
 
-	const folderPath = path.join(__dirname, '../public/uploads/albums/' + req.params.id);
-
-	fs.mkdirSync(folderPath, { recursive: true });
+	const folderPath = path.join(__dirname, '../public/uploads/albums/' + id);
+	mkdirSync(folderPath, { recursive: true });
 
 	const localPath = path.join(folderPath, req.files.add_image.name);
 	await req.files.add_image.mv(localPath);
@@ -37,59 +36,64 @@ const addImage = async (req, res) => {
 	album.images.push(req.files.add_image.name);
 	await album.save();
 
-	res.redirect(`/albums/id/${album._id}`);
-};
+	res.redirect(`/albums/${id}`);
+});
 
-const albums = async (req, res) => {
+const albums = catchAsync(async (req, res) => {
 	const albums = await Album.find();
 	res.render('albums', { title: 'My albums', albums });
-};
+});
 
-const createAlbumForm = (req, res) => {
-	res.render('new-album', {
-		title: 'Create Album',
-		errors: req.flash('error'),
+const createAlbumForm = catchAsync(async (req, res) => {
+	res.render('new-album', { title: 'Create Album', errors: req.flash('error') });
+});
+
+const createAlbum = catchAsync(async (req, res) => {
+	const title = req.body.album_title;
+	if (!title) {
+		req.flash('error', 'No title provided');
+		return res.redirect('/albums/create');
+	}
+	if (title.length > 20) {
+		req.flash('error', 'Title is too long');
+		return res.redirect('/albums/create');
+	}
+
+	const album = await Album.create({
+		title: title,
 	});
-};
 
-const createAlbum = async (req, res) => {
-	try {
-		await Album.create({
-			title: req.body.album_title,
-		});
-		res.redirect('/albums');
-	} catch (error) {
-		req.flash('error', 'Error when creating album');
-		res.redirect('/albums/create');
-	}
-};
+	res.redirect('/albums');
+});
 
-const deleteImage = async (req, res) => {
-	const album = await Album.findById(req.params.id);
-	const image = album.images[req.params.index];
-	if (!image) {
-		res.redirect('/albums/id/' + req.params.id);
-		return;
-	}
+const deleteImage = catchAsync(async (req, res) => {
+	const id = req.params.id;
+	const index = req.params.index;
 
-	album.images.splice(req.params.index, 1);
+	const album = await Album.findById(id);
+	if (!album) return res.redirect('/albums');
+
+	const image = album.images[index];
+	if (!image) return res.redirect('/albums/' + id);
+
+	album.images.splice(index, 1);
 	await album.save();
 
-	const imagePath = path.join(__dirname, '../public/uploads/albums/' + req.params.id + '/' + image);
-	fs.unlinkSync(imagePath);
+	const imagePath = path.join(__dirname, `../public/uploads/albums/${id}/${image}`);
+	unlinkSync(imagePath);
 
-	res.redirect('/albums/id/' + req.params.id);
-};
+	res.redirect('/albums/' + id);
+});
 
-const deleteAlbum = async (req, res) => {
-	await Album.findByIdAndDelete(req.params.id);
+const deleteAlbum = catchAsync(async (req, res) => {
+	const id = req.params.id;
+	await Album.findByIdAndDelete(id);
 
-	const albumPath = path.join(__dirname, '../public/uploads/albums/' + req.params.id);
-
+	const albumPath = path.join(__dirname, '../public/uploads/albums/' + id);
 	rimraf(albumPath, () => {
 		res.redirect('/albums');
 	});
-};
+});
 
 module.exports = {
 	albums,

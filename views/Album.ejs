@@ -7,7 +7,7 @@
 		<%- include('partials/nav') %>
 		<section class="container album">
 			<h2>Album: <%= album.title %></h2>
-			<form action="/albums/id/<%= album._id %>" method="post" enctype="multipart/form-data">
+			<form action="/albums/<%= album._id %>" method="post" enctype="multipart/form-data">
 				<div>
 					<input type="file" name="add_image" placeholder="Add image" />
 				</div>
@@ -27,7 +27,7 @@
 						<img src="/uploads/albums/<%= album._id %>/<%= i %>" alt="<%= i %>" />
 					</div>
 					<div class="container album_cards_card_bottom">
-						<a href="/albums/id/<%= album._id %>/delete/<%= idx %>">Delete</a>
+						<a href="/albums/<%= album._id %>/delete/<%= idx %>">Delete</a>
 					</div>
 				</div>
 				<% }) %>
