@@ -26,6 +26,10 @@ app.use(
 );
 app.use(flash());
 
+app.get('/', (req, res) => {
+	res.redirect('/albums');
+});
+
 app.use('/', albumRoutes);
 app.use((req, res, next) => res.status(404).send('Sorry cant find that!'));
 

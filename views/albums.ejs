@@ -4,6 +4,23 @@
 		<%- include('partials/head') %>
 	</head>
 	<body>
-		<%- include('partials/nav') %> <%- include('partials/script') %>
+		<%- include('partials/nav') %>
+		<section class="container albums">
+			<h2>My albums</h2>
+			<a href="/albums/create">New album</a>
+			<div class="container albums_cards">
+				<% albums.forEach((a) => { %>
+				<div class="container albums_cards_card">
+					<div class="albums_cards_card_left">
+						<a href=""><%= a.title %></a>
+					</div>
+					<div class="albums_cards_card_right">
+						<a href="">Delete</a>
+					</div>
+				</div>
+				<% }) %>
+			</div>
+		</section>
+		<%- include('partials/script') %>
 	</body>
 </html>

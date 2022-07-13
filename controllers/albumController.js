@@ -1,5 +1,10 @@
 const Album = require('../models/Album');
 
+const albums = async (req, res) => {
+	const albums = await Album.find();
+	res.render('albums', { title: 'My albums', albums });
+};
+
 const createAlbumForm = (req, res) => {
 	res.render('new-album', {
 		title: 'Create Album',
@@ -12,7 +17,7 @@ const createAlbum = async (req, res) => {
 		await Album.create({
 			title: req.body.album_title,
 		});
-		res.redirect('/');
+		res.redirect('/albums');
 	} catch (error) {
 		req.flash('error', 'Error when creating album');
 		res.redirect('/albums/create');
@@ -20,6 +25,7 @@ const createAlbum = async (req, res) => {
 };
 
 module.exports = {
+	albums,
 	createAlbumForm,
 	createAlbum,
 };
