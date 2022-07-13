@@ -12,4 +12,6 @@ router.post('/albums/create', albumController.createAlbum);
 
 router.post('/albums/id/:id', albumController.addImage);
 
+router.get('/albums/id/:id/delete/:index', albumController.deleteImage);
+
 module.exports = router;

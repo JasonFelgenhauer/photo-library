@@ -24,6 +24,16 @@
 				<!-- <div class="album_cards_card">
 					<img src="http://pics.jason-fel.be/uploads/1655223753Paladium%20-%20NersPet.jpg" alt="" />
 				</div> -->
+				<% album.images.forEach((i, idx) => { %>
+				<div class="album_cards_card">
+					<div class="album_cards_card_top">
+						<img src="/uploads/albums/<%= album._id %>/<%= i %>" alt="" />
+					</div>
+					<div class="album_cards_card_bottom">
+						<a href="/albums/id/<%= album._id %>/delete/<%= idx %>">Delete</a>
+					</div>
+				</div>
+				<% }) %>
 			</div>
 		</section>
 		<%- include('partials/script') %>
