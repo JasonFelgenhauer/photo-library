@@ -229,7 +229,29 @@ a {
   border-radius: 10%;
   overflow: hidden;
 }
-.album_cards_card img {
+.album_cards_card_top {
+  max-height: 500px;
+  overflow: hidden;
+}
+.album_cards_card_top img {
   width: 100%;
   height: auto;
+}
+.album_cards_card_bottom {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.album_cards_card_bottom a {
+  width: 100%;
+  padding: 10px;
+  border: 3px solid #02020a;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  transition: all 0.3s ease-in-out;
+}
+.album_cards_card_bottom a:hover {
+  background: #02020a;
+  color: #ffffff;
 }/*# sourceMappingURL=index.css.map */

@@ -61,9 +61,31 @@
 			justify-content: space-between;
 			border-radius: 10%;
 			overflow: hidden;
-			img {
+			&_top {
+				max-height: 500px;
+				overflow: hidden;
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+			&_bottom {
+				text-align: center;
 				width: 100%;
-				height: auto;
+				margin-bottom: 25px;
+				a {
+					width: 100%;
+					padding: 10px;
+					border: 3px solid $color_3;
+					border-radius: 5px;
+					margin-bottom: 10px;
+					font-size: 1.2em;
+					transition: all 0.3s ease-in-out;
+					&:hover {
+						background: $color_3;
+						color: $color_1;
+					}
+				}
 			}
 		}
 	}

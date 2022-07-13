@@ -28,3 +28,4 @@ or download zip
 8. Processing the addition of an image to an album.
 9. Image upload error handling.
 10. Image display and deletions.
+11. Deleting an album.
