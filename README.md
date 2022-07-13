@@ -26,3 +26,4 @@ or download zip
 6. Display all albums.
 7. Add an image upload form.
 8. Processing the addition of an image to an album.
+9. Image upload error handling.

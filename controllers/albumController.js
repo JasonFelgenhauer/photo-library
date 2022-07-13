@@ -5,7 +5,7 @@ const fs = require('fs');
 const album = async (req, res) => {
 	try {
 		const album = await Album.findById(req.params.id);
-		res.render('album', { title: 'Album', album });
+		res.render('album', { title: 'Album', album, errors: req.flash('error') });
 	} catch (error) {
 		res.redirect('/404');
 	}
@@ -13,6 +13,18 @@ const album = async (req, res) => {
 
 const addImage = async (req, res) => {
 	const album = await Album.findById(req.params.id);
+
+	if (!req?.files?.add_image) {
+		req.flash('error', 'No image selected');
+		res.redirect(`/albums/id/${album._id}`);
+		return;
+	}
+
+	if (req.files.add_image.mimetype != 'image/jpeg' && req.files.add_image.mimetype != 'image/png') {
+		req.flash('error', 'Image must be jpeg or png');
+		res.redirect(`/albums/id/${album._id}`);
+		return;
+	}
 
 	const folderPath = path.join(__dirname, '../public/uploads/albums/' + req.params.id);
 
