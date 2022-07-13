@@ -12,7 +12,7 @@
 				<% albums.forEach((a) => { %>
 				<div class="container albums_cards_card">
 					<div class="albums_cards_card_left">
-						<a href=""><%= a.title %></a>
+						<a href="/albums/<%= a._id %>"><%= a.title %></a>
 					</div>
 					<div class="albums_cards_card_right">
 						<a href="">Delete</a>

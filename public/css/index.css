@@ -152,4 +152,84 @@ a {
 }
 .albums_cards_card_right a:hover {
   background: #880d1e;
+}
+
+.album {
+  min-height: 90vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 200px;
+}
+.album h2 {
+  margin-top: 100px;
+  margin-bottom: 15px;
+  font-size: 3em;
+}
+.album form div input {
+  width: 100%;
+  padding: 10px;
+  border: 3px solid #02020a;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  transition: all 0.3s ease-in-out;
+}
+.album form div input::-moz-placeholder {
+  color: #02020a;
+}
+.album form div input:-ms-input-placeholder {
+  color: #02020a;
+}
+.album form div input::placeholder {
+  color: #02020a;
+}
+.album form div input::-webkit-file-upload-button {
+  border: none;
+  background: #02020a;
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.album form div input[type=submit] {
+  cursor: pointer;
+  font-weight: 600;
+  width: 25%;
+}
+.album form div input:hover {
+  background: #02020a;
+  color: #ffffff;
+}
+.album form div input:hover::-moz-placeholder {
+  color: #ffffff;
+}
+.album form div input:hover:-ms-input-placeholder {
+  color: #ffffff;
+}
+.album form div input:hover::placeholder {
+  color: #ffffff;
+}
+.album form div input:hover::-webkit-file-upload-button {
+  background: #ffffff;
+  color: #02020a;
+}
+.album_cards {
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 50px -10px 0 -10px;
+  justify-content: flex-start;
+}
+.album_cards_card {
+  margin: 10px;
+  width: calc(33.33% - 20px);
+  justify-content: space-between;
+  border-radius: 10%;
+  overflow: hidden;
+}
+.album_cards_card img {
+  width: 100%;
+  height: auto;
 }/*# sourceMappingURL=index.css.map */
