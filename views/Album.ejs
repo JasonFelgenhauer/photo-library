@@ -7,7 +7,7 @@
 		<%- include('partials/nav') %>
 		<section class="container album">
 			<h2>Album: <%= album.title %></h2>
-			<form action="/albums/<%= album._id %>/new-image" method="post" enctype="multipart/form-data">
+			<form action="/albums/id/<%= album._id %>" method="post" enctype="multipart/form-data">
 				<div>
 					<input type="file" name="add_image" placeholder="Add image" />
 				</div>
@@ -16,9 +16,9 @@
 				</div>
 			</form>
 			<div class="container album_cards">
-				<div class="album_cards_card">
+				<!-- <div class="album_cards_card">
 					<img src="http://pics.jason-fel.be/uploads/1655223753Paladium%20-%20NersPet.jpg" alt="" />
-				</div>
+				</div> -->
 			</div>
 		</section>
 		<%- include('partials/script') %>

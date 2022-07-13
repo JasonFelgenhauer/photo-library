@@ -25,3 +25,4 @@ or download zip
 5. Error handling when creating an album.
 6. Display all albums.
 7. Add an image upload form.
+8. Processing the addition of an image to an album.

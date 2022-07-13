@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const flash = require('connect-flash');
+const fileUpload = require('express-fileupload');
 const path = require('path');
 const mongoose = require('mongoose');
 const albumRoutes = require('./routes/albumRoutes');
@@ -12,6 +13,7 @@ mongoose.connect('mongodb+srv://mr__wigy:ill4aqomrLfJYXsE@cluster0.3uufg.mongodb
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(fileUpload());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
