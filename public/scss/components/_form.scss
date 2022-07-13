@@ -43,8 +43,32 @@
 		font-size: 1.2em;
 		margin-top: 10px;
 		border-radius: 5px;
-
-		p {
+	}
+	@media (max-width: 900px) {
+		form {
+			width: 90%;
+		}
+	}
+	@media (max-width: 400px) {
+		form {
+			div {
+				input {
+					&[type='submit'] {
+						width: 50%;
+					}
+				}
+			}
+		}
+	}
+	@media (max-width: 250px) {
+		form {
+			div {
+				input {
+					&[type='submit'] {
+						width: 75%;
+					}
+				}
+			}
 		}
 	}
 }

@@ -43,6 +43,15 @@ a {
   text-transform: uppercase;
   color: #ffffff;
 }
+@media (max-width: 300px) {
+  .nav {
+    padding-left: 0;
+    justify-content: center;
+  }
+  .nav a {
+    font-size: 1.5em;
+  }
+}
 
 .form {
   min-height: 90vh;
@@ -101,6 +110,22 @@ a {
   margin-top: 10px;
   border-radius: 5px;
 }
+@media (max-width: 900px) {
+  .form form {
+    width: 90%;
+  }
+}
+@media (max-width: 400px) {
+  .form form div input[type=submit] {
+    width: 50%;
+  }
+}
+@media (max-width: 250px) {
+  .form form div input[type=submit] {
+    width: 75%;
+  }
+}
+
 .albums {
   min-height: 90vh;
   flex-direction: column;
@@ -152,6 +177,62 @@ a {
 }
 .albums_cards_card_right a:hover {
   background: #880d1e;
+}
+@media (max-width: 1350px) {
+  .albums {
+    padding: 0 100px;
+  }
+  .albums_cards {
+    width: calc(100% + 10px);
+    margin: 50px -5px 0 -5px;
+  }
+  .albums_cards_card {
+    margin: 5px;
+    width: calc(33.33% - 10px);
+  }
+}
+@media (max-width: 1100px) {
+  .albums {
+    padding: 0 50px;
+  }
+  .albums_cards_card {
+    width: calc(50% - 10px);
+  }
+}
+@media (max-width: 700px) {
+  .albums {
+    padding: 0 25px;
+  }
+  .albums_cards_card {
+    width: calc(100% - 10px);
+  }
+}
+@media (max-width: 300px) {
+  .albums {
+    padding: 0 10px;
+  }
+  .albums h2 {
+    font-size: 2em;
+  }
+  .albums a {
+    font-size: 1em;
+  }
+  .albums_cards {
+    width: 100%;
+    margin: 50px 0 0 0;
+  }
+  .albums_cards_card {
+    margin: 5px;
+    width: calc(100% - 10px);
+    padding: 10px;
+  }
+  .albums_cards_card_left a {
+    font-size: 0.8em;
+  }
+  .albums_cards_card_right a {
+    font-size: 0.8em;
+    padding: 2px;
+  }
 }
 
 .album {
@@ -254,4 +335,55 @@ a {
 .album_cards_card_bottom a:hover {
   background: #02020a;
   color: #ffffff;
+}
+@media (max-width: 1400px) {
+  .album {
+    padding: 0 100px;
+  }
+}
+@media (max-width: 1000px) {
+  .album_cards_card {
+    width: calc(50% - 20px);
+  }
+}
+@media (max-width: 700px) {
+  .album {
+    padding: 0 50px;
+  }
+  .album_cards_card {
+    width: calc(100% - 20px);
+  }
+}
+@media (max-width: 600px) {
+  .album h2 {
+    font-size: 2em;
+  }
+  .album form div input {
+    width: 100%;
+    padding: 0;
+    font-size: 1em;
+  }
+  .album form div input::-webkit-file-upload-button {
+    border-radius: 0;
+  }
+  .album form div input[type=submit] {
+    width: 50%;
+  }
+  .album_cards_card {
+    width: calc(100% - 20px);
+  }
+}
+@media (max-width: 500px) {
+  .album {
+    padding: 0 25px;
+  }
+  .album h2 {
+    font-size: 1em;
+  }
+  .album form div input {
+    font-size: 0.8em;
+  }
+  .album_cards_card {
+    width: calc(100% - 20px);
+  }
 }/*# sourceMappingURL=index.css.map */

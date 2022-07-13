@@ -22,7 +22,7 @@ const addImage = catchAsync(async (req, res) => {
 		return res.redirect(`/albums/id/${album._id}`);
 	}
 
-	if (req.files.add_image.mimetype != 'image/jpeg' && req.files.add_image.mimetype != 'image/png') {
+	if (req.files.add_image.mimetype != 'image/jpeg' && req.files.add_image.mimetype != 'image/png' && req.files.add_image.mimetype != 'image/gif') {
 		req.flash('error', 'Wrong image format');
 		return res.redirect(`/albums/id/${id}`);
 	}

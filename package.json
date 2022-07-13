@@ -24,6 +24,7 @@
     "express-fileupload": "^1.4.0",
     "express-session": "^1.17.3",
     "mongoose": "^6.4.4",
+    "nodemon": "^2.0.19",
     "rimraf": "^3.0.2"
   }
 }

@@ -30,3 +30,4 @@ or download zip
 10. Image display and deletions.
 11. Deleting an album.
 12. More advanced error handling.
+13. Add responsive.

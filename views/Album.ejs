@@ -6,7 +6,7 @@
 	<body>
 		<%- include('partials/nav') %>
 		<section class="container album">
-			<h2>Album: <%= album.title %></h2>
+			<h2>Album: <%= album.title %> (<%= album.images.length %>)</h2>
 			<form action="/albums/<%= album._id %>" method="post" enctype="multipart/form-data">
 				<div>
 					<input type="file" name="add_image" placeholder="Add image" />

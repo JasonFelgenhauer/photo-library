@@ -53,4 +53,60 @@
 			}
 		}
 	}
+	@media (max-width: 1350px) {
+		padding: 0 100px;
+		&_cards {
+			width: calc(100% + 10px);
+			margin: 50px -5px 0 -5px;
+			&_card {
+				margin: 5px;
+				width: calc(33.33% - 10px);
+			}
+		}
+	}
+	@media (max-width: 1100px) {
+		padding: 0 50px;
+		&_cards {
+			&_card {
+				width: calc(50% - 10px);
+			}
+		}
+	}
+	@media (max-width: 700px) {
+		padding: 0 25px;
+		&_cards {
+			&_card {
+				width: calc(100% - 10px);
+			}
+		}
+	}
+	@media (max-width: 300px) {
+		padding: 0 10px;
+		h2 {
+			font-size: 2em;
+		}
+		a {
+			font-size: 1em;
+		}
+		&_cards {
+			width: calc(100%);
+			margin: 50px 0 0 0;
+			&_card {
+				margin: 5px;
+				width: calc(100% - 10px);
+				padding: 10px;
+				&_left {
+					a {
+						font-size: 0.8em;
+					}
+				}
+				&_right {
+					a {
+						font-size: 0.8em;
+						padding: 2px;
+					}
+				}
+			}
+		}
+	}
 }
