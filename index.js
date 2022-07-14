@@ -9,7 +9,7 @@ const albumRoutes = require('./routes/albumRoutes');
 const app = express();
 const port = 3000;
 
-mongoose.connect('mongodb+srv://mr__wigy:ill4aqomrLfJYXsE@cluster0.3uufg.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
